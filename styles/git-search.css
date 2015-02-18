@@ -1,0 +1,21 @@
+.header, .search, .body{
+  border: 2px solid black;  
+}
+.header {
+  height: 50px;
+}
+.search {
+  height: 100px;
+}
+.left{
+  width: 50%;
+  height: 400px;
+  border: 2px solid blue;
+}
+.right {
+  width: 49%;
+  margin-left: 600px;
+  margin-top: -240px;
+  height: 400px;
+  border: 2px solid red;
+}
