@@ -1,97 +1,42 @@
-/*.header, .search, .body, .footer{
-  border: 2px solid black;  
-}*/
-body {
-  margin: 0;
-  padding: 0;
+.no-thumbnail{
+  border:none !important;
 }
 .header {
   background: #784BB3;
   color: white;
   padding: 20px;
-}
-.header h2, .results input, .error, .search {
-  text-align: center;
+  margin-bottom: 20px;
 }
 .header h2 {
-  font-family: 'Ubuntu', sans-serif; 
-  font-size: 40px;
+  text-align: center;
+  font-family: 'Ubuntu', sans-serif;
   font-weight: bold;
-  padding: 0;
-  margin: 0;
-}
-.left, .right {
-  height: 400px;
+  font-size: 40px;
 }
 .search {
-  margin: 20px auto;
+  text-align: center;
+  margin-bottom: 20px;
 }
-.left{
-  width: 50%;  
+.row-blocks{
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
-.right {
-  width: 40%;
-  margin-left: 650px;
-  margin-top: -620px;
-  border-left: 2px solid #784BB3;
-}
-#searchBox, #submit {
-  font-size: 20px;
-  border-radius:6px;  
-} 
-#searchBox {
-  max-width: 100%;
-  height: 40px;
-}
-#submit {
-  width: 100px;
-  height: 45px;
-  margin-left: -4px;
-  cursor: pointer;
-  color: #784BB3;  
-}
-#avatar img, #repos {
-  position: absolute;
-}
-#avatar img {
-  height: 190px;
-  border-radius: 100px;
-  border: 2px solid black;
-  margin-left: 180px;
-  margin-top: -220px;
+#repos ul li {
+  list-style-type: none;
 }
 #repos {
   overflow: auto;
   width: 500px;
   height: 400px;
 }
-#repos ul li {
-  list-style-type: none;
+#repos ul li a {
   font-family: 'Ubuntu', sans-serif; 
-  font-size: 20px;
-}
-.results {
-  margin-top: 250px;
-  margin-left: 70px;
-}
-.results div {
-  padding: 15px;
-}
-.results input {
-width: 45px;
-border: 2px solid black;
-border-radius: 10px;
-height: 25px;
-font-size: 20px;
-}
-.left-results, .right-results {
-  display: inline-block;
-}
-
-span, input, button, .error {
-  font-family: 'Ubuntu', sans-serif;
+  font-size: 15px;
+  color: #784BB3;
 }
 .error {
   color: red;
-  font-size: 40px;
+  font-size: 25px;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
 }

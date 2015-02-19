@@ -3,6 +3,7 @@ var gitSearch = {
   initialize: function() {
     $(".results").hide();
     $(".right").hide();
+    $(".avatar").hide();
     this.search();
   },
 
@@ -37,8 +38,8 @@ var gitSearch = {
     $("#submit").click(function(event){
       event.preventDefault(); 
       $("#repos").empty();  
-      $(".error").hide();   
-        
+      $(".error").hide();
+      $(".avatar").empty();        
 
       var textBox = $("#searchBox").val().trim();
      
@@ -59,17 +60,17 @@ var gitSearch = {
 
         var numFollowers = reply.followers,
             numFollowing = reply.following,
-            repo = reply.public_repos,
+            repo = reply.public_repos;
             image = reply.avatar_url;
 
         $("#numFollowers").val(numFollowers);
         $("#numFollowing").val(numFollowing);        
         $("#repo").val(repo);
-        $("#avatar").append("<img src=" + image + ">");
-        $("#avatar").show();
+        $(".avatar").append("<img src=" + image + " " + "class='img-rounded'>");
+        $(".avatar").show();
       }).fail(function(error){
         $(".error").html( error.status + " " + error.statusText);
-        $("#avatar").hide();
+        $(".avatar").hide();
         $(".error").show();
         $(".right").hide();
       });
