@@ -34,15 +34,29 @@ var gitSearch = {
 
   //searches the API and returns results
   search: function() {
-    $("#submit").click(function(){
+    $("#submit").click(function(event){
       event.preventDefault(); 
-      $("#repos").empty();
-      $(".results").show();
-      $(".right").show();
-      
+      $("#repos").empty();  
+      $(".error").hide();   
+        
+
+      var textBox = $("#searchBox").val().trim();
+     
+      //To check if textbox is empty
+      if (textBox === "") {
+        $(".error").show(function(){
+          $(".error").html("You have not entered a name!");
+          $(".results").hide();
+          $(".right").hide();
+        });          
+      }         
+              
       var url = gitSearch.url();
 
       $.getJSON(url, function(reply) {
+          $(".results").show();
+          $(".right").show();
+
         var numFollowers = reply.followers,
             numFollowing = reply.following,
             repo = reply.public_repos,
@@ -52,7 +66,12 @@ var gitSearch = {
         $("#numFollowing").val(numFollowing);        
         $("#repo").val(repo);
         $("#avatar").append("<img src=" + image + ">");
-
+        $("#avatar").show();
+      }).fail(function(error){
+        $(".error").html( error.status + " " + error.statusText);
+        $("#avatar").hide();
+        $(".error").show();
+        $(".right").hide();
       });
 
       //Returns the number of organisations to the textbox.
@@ -69,6 +88,9 @@ var gitSearch = {
     var url = gitSearch.orgUrl();
 
     $.getJSON(url, function(reply) {
+      $(".results").show();
+      $(".right").show();
+
       var numOrg = reply.length;
       $("#org").val(numOrg);     
     });
@@ -79,9 +101,13 @@ var gitSearch = {
     var url = gitSearch.repoUrl();
 
     $.getJSON(url, function(reply) {
+      $(".results").show();
+      $(".right").show();
+
       for (var i = 0; i < reply.length; i++) {
         var repo = reply[i].full_name;
-        $("#repos").append("<ul>" +"<li>" + repo + "</li>" + "<ul>");
+        var repoLink = reply[i].html_url
+        $("#repos").append("<ul>" +"<li>" + "<a href=" + repoLink + ' target="_blank"' + ">" + repo + "</a>" +  "</li>" + "<ul>");
       }           
     });
   }
