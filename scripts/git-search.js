@@ -1,6 +1,8 @@
 var gitSearch = {
   //Loads functions that initialize when document is ready
   initialize: function() {
+    $(".results").hide();
+    $(".right").hide();
     this.search();
   },
 
@@ -35,6 +37,8 @@ var gitSearch = {
     $("#submit").click(function(){
       event.preventDefault(); 
       $("#repos").empty();
+      $(".results").show();
+      $(".right").show();
       
       var url = gitSearch.url();
 
@@ -82,7 +86,6 @@ var gitSearch = {
     });
   }
 }
-
 
 
 $(document).ready(gitSearch.initialize())
