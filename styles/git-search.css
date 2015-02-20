@@ -7,9 +7,11 @@
   padding: 20px;
   margin-bottom: 20px;
 }
-.header h2 {
-  text-align: center;
+.header h2, #repos ul li a, .error, #submit {
   font-family: 'Ubuntu', sans-serif;
+}
+.header h2 {  text-align: center;
+  
   font-weight: bold;
   font-size: 40px;
 }
@@ -30,13 +32,13 @@
   height: 400px;
 }
 #repos ul li a {
-  font-family: 'Ubuntu', sans-serif; 
   font-size: 15px;
-  color: #784BB3;
 }
 .error {
   color: red;
   font-size: 25px;
-  font-family: 'Ubuntu', sans-serif;
   text-align: center;
+}
+#submit, #repos ul li a {
+  color: #784BB3;
 }
